@@ -31,9 +31,9 @@ class CheckClientCredentials
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @param  array ...$scopes
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  array  $scopes
      * @return mixed
      *
      * @throws \Illuminate\Auth\AuthenticationException
@@ -49,7 +49,7 @@ class CheckClientCredentials
         }
 
         foreach ($scopes as $scope) {
-            if (!in_array($scope, $psr->getAttribute('oauth_scopes'))) {
+            if (! in_array($scope, $psr->getAttribute('oauth_scopes'))) {
                 throw new AuthenticationException;
             }
         }
